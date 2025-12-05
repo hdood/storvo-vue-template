@@ -16,23 +16,20 @@ const indexHtmlPath = path.resolve(__dirname, 'index.html')
 export default defineConfig({
   server: {
     proxy: {
-      '^/(?!dist|src|node_modules|@vite|@id).*': `http://${config.sandboxId}.str.test`,
-      // {
-      //   target: `http://${config.sandboxId}.str.test`,
-      // configure(proxy, options) {
-      //   proxy.on('proxyRes', (proxyRes, req, res) => {
-      //     let body: any = []
-      //     proxyRes.on('data', function (chunk) {
-      //       body.push(chunk)
-      //     })
-      //     proxyRes.on('end', function () {
-      //       body = Buffer.concat(body).toString()
-      //       console.log('res from proxied server:', body)
-      //       res.end('my response to cli')
-      //     })
-      //   })
-      // },
-      // },
+      '^/(?!dist|src|node_modules|@vite|@id).*':
+        // works
+        //  `http://${config.sandboxId}.str.test`,
+
+        // does not work
+        {
+          target: `http://${config.sandboxId}.str.test`,
+          changeOrigin: true,
+          configure(proxy, options) {
+            proxy.on('proxyReq', function (proxyReq, req, res, options) {
+              proxyReq.setHeader('X-SANDBOX', '1')
+            })
+          },
+        },
     },
   },
   plugins: [
