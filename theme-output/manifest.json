@@ -1,0 +1,35 @@
+{
+  "products": [
+    {
+      "name": "newArrivals",
+      "tag": "NEW"
+    },
+    {
+      "name": "sale",
+      "tag": "SALE"
+    },
+    {
+      "name": "featured",
+      "tag": "FEATURED"
+    }
+  ],
+  "assets": {
+    "css": [
+      "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
+      "assets/index-89vGZvgq.css"
+    ],
+    "js": [
+      "assets/index-sdVIkm3U.js"
+    ],
+    "preconnects": [
+      {
+        "href": "https://fonts.googleapis.com",
+        "crossorigin": ""
+      },
+      {
+        "href": "https://fonts.gstatic.com",
+        "crossorigin": ""
+      }
+    ]
+  }
+}

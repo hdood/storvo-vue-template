@@ -1,0 +1,7 @@
+{
+  "products": [
+    { "name": "newArrivals", "tag": "NEW" },
+    { "name": "sale", "tag": "SALE" },
+    { "name": "featured", "tag": "FEATURED" }
+  ]
+}
